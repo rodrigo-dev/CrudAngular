@@ -21,6 +21,11 @@ import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar'
+
+import { FormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule} from '@angular/material/input';
+import { ProductReadComponent } from './components/product/product-read/product-read.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +37,7 @@ import { MatSnackBarModule} from '@angular/material/snack-bar'
     RedDirective,
     ForDirective,
     ProductCreateComponent,
+    ProductReadComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,9 @@ import { MatSnackBarModule} from '@angular/material/snack-bar'
     MatButtonModule,
     MatSnackBarModule,
     HttpClientModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
