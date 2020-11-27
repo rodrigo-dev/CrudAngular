@@ -4,17 +4,17 @@
 <form>
     <mat-form-field>
         <input matInput placeholder="Nome"
-         [(ngModel)]="product.name" name="name" autocomplete="off" type="text">
+         [value]="product.name" name="name" autocomplete="off" disabled>
     </mat-form-field>    
     <mat-form-field>
         <input matInput placeholder="Preço (R$)"
-        [(ngModel)]="product.price" name="price" autocomplete="off" type="number">
+        [value]="product.price" name="price" autocomplete="off" disabled type="number">
     </mat-form-field>
 </form>
 
 
-<button mat-raised-button (click)= "createProduct()" color="primary">
-    Salvar
+<button mat-raised-button (click)= "deleteProduct()" color="warn">
+    Deletar
 </button>
 <button mat-raised-button (click)= "cancel()">
     Cancelar

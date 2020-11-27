@@ -4,33 +4,31 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
 
 @Component({
-  selector: 'app-product-update',
-  templateUrl: './product-update.component.html',
-  styleUrls: ['./product-update.component.css']
+  selector: 'app-product-delete',
+  templateUrl: './product-delete.component.html',
+  styleUrls: ['./product-delete.component.css']
 })
-export class ProductUpdateComponent implements OnInit {
-
-  product: Product
-
+export class ProductDeleteComponent implements OnInit {
+    product : Product
+    
   constructor(private service : ProductService,
     private router : Router,
     private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.service.readById(id).subscribe( product => {
-      this.product = product
+    this.service.readById(id).subscribe(res =>{
+      this.product = res
     })
   }
-
-  updateProduct() : void{
-    this.service.update(this.product).subscribe(() =>{
-      this.service.showMenssage('Produto Alterado!')
+  deleteProduct() : void{
+    const id = this.route.snapshot.paramMap.get('id')
+    this.service.delete(this.product.id).subscribe(()=>{
+      this.service.showMenssage('produto excluido com sucesso.')
       this.router.navigate(['/products'])
     })
   }
   cancel() : void{
     this.router.navigate(['/products'])
   }
-
 }
